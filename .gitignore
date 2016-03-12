@@ -63,3 +63,4 @@ target/
 
 # Scratch pad used when teaching.
 stuff.py
+*in_class.py
