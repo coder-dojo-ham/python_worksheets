@@ -14,16 +14,16 @@ class Paint(tkinter.Tk):
 
     It is best to think of each thing in a GUI as an object with it's own set of properties.
 
-    We are making a Paint class which "inherits" tkinters Tk object. The Tk object is a basic GUI window.
+    Here we are making a Paint class which "inherits" tkinters Tk object. The Tk object is a basic GUI window.
     """
     def __init__(self, *args, **kwargs):
         """
         The __init__ function is the first function called when a class is created.
-
         This makes it really useful to set things up in it. Here we use it to put in a canvas for drawing, some buttons
         to control how we paint, and some basic settings like the paint colour and if we are clicking the mouse button
         or not.
         """
+
         # super is a special function we should call when inheriting a class to make sure everything works right.
         super(Paint, self).__init__(*args, **kwargs)
 
