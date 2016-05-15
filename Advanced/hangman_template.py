@@ -1,26 +1,45 @@
 """
-This is a template for hangman, use the hints here to write your own program.
+This is a template for hangman.
+
+Use the hints here to write your own program.
 """
 
-import  # import a module which does random things here
+import random # import a module which does random things here
 
-list_of_words = ['put', 'some', 'words', 'here']  # put your own words in here.
+# put your own words in here.
+list_of_words = ['put', 'some', 'words', 'here']
 
-word = some random word # choose a random word from your list, use the import above.
+# choose a random word from your list, use the import above.
+word = some random word
 
-# You might need to make some variables here to say how many tries has had, and their guesses.
+# You might need to make some variables here
+# to say how many tries has had, and their guesses.
 
-while some conditions:  # You need to loop around asking them to guess until they get it right or run out of tries.
-    print the hidden word  # you need a hidden version of the word to show how big it is and what they've guessed.
-    guess = a users guess# Ask them to guess a letter or word here.
+tries = 0
 
-    if some guess is good: # check here if they got the right letter or word.
-        tell the user it is good.  # tell the user is good
-    else:  # make sure to tell them if it is wrong.
+guesses = []
+
+hidden_word = ['_' for char in word]
+
+# Now you need to loop around asking them to guess
+# until they get it right or run out of tries.
+while some conditions:
+    # you need a hidden version of the word to show how
+    # big it is and what they've guessed so far.
+    print the hidden word
+    # Ask them to guess a letter or word here.
+    guess = a users guess
+
+    # check here if they got the right letter or word.
+    if some guess is good:
+        # tell the user is good
+        tell the user it is good.
+    else:
+        # make sure to tell them if it is wrong.
         tell the user it is wrong
 
     # outside of the if now.
-    add the guess to the list of guesses.
+    add the guess to the list of guesses
 
 # outside the loop now.
 
