@@ -1,0 +1,14 @@
+<!doctype html>
+
+<title>My Calculator</title>
+
+<form action="{{ url_for('add_post') }}" method="post">
+
+    <label for="num1">Number 1</label>
+    <input type="number" name="num1" id="num1" placeholder="num1" />
+    <br>
+    <label for="num2">Number 2</label>
+    <input type="number" name="num2" id="num2" placeholder="num2"/>
+    <br>
+    <button type="submit">Submit</button>
+</form>

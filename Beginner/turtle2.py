@@ -1,11 +1,11 @@
-from turtle import *
+import turtle
 
-angles = int(input('How many angles do you want? '))
+def shape(angles, length=50, shape='turtle'):
 
-shape('turtle')
+    turtle.shape(shape)
 
-turn = 360/angles
+    turn = 360/angles
 
-for x in range(angles):
-    forward(50)
-    left(turn)
+    for _ in range(angles):
+        turtle.forward(length)
+        turtle.left(turn)
