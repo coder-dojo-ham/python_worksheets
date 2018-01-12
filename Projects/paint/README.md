@@ -15,6 +15,9 @@ To do this project you need to understand:
 - Functions.
 - Objects.
 
+I'd recommend doing the `would_you_rather_button` and `turtle_racing`
+ projects first.
+
 ### What we are introducing in this project
 
 This project focuses on teaching you about:
