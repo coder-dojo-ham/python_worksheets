@@ -55,19 +55,19 @@ class Paint(tkinter.Tk):
         # Lets put some buttons in. These ones can use a "command" which is a function it will call when clicked.
         # Some easy buttons could be to change the colour we are drawing with like below.
 
-        self.blue_button = tkinter.Button(self, command=self.change_to_blue, bg='blue')
+        self.blue_button = tkinter.Button(self, command=self.change_colour_factory('blue'), bg='blue')
         self.blue_button.pack(fill='both', expand=1)
 
-        self.red_button = tkinter.Button(self, command=self.change_to_red, bg='red')
+        self.red_button = tkinter.Button(self, command=self.change_colour_factory('red'), bg='red')
         self.red_button.pack(fill='both', expand=1)
 
-        self.green_button = tkinter.Button(self, command=self.change_to_green, bg='green')
+        self.green_button = tkinter.Button(self, command=self.change_colour_factory('green'), bg='green')
         self.green_button.pack(fill='both', expand=1)
 
-        self.yellow_button = tkinter.Button(self, command=self.change_to_yellow, bg='yellow')
+        self.yellow_button = tkinter.Button(self, command=self.change_colour_factory('yellow'), bg='yellow')
         self.yellow_button.pack(fill='both', expand=1)
 
-        self.black_button = tkinter.Button(self, command=self.change_to_black, bg='black')
+        self.black_button = tkinter.Button(self, command=self.change_colour_factory('black'), bg='black')
         self.black_button.pack(fill='both', expand=1)
 
         # How about the thickness of the pen? We could use a slider to choose how thick the pen is when drawing.
@@ -92,6 +92,11 @@ class Paint(tkinter.Tk):
         # Important - when you define a function within a class, they are actually called methods!
         # Also every method will take an argument called "self". Self is a special argument which is always the object
         # itself. This is so you can access the properties we made in the __init__ function.
+
+    def change_colour_factory(self, colour):
+        def change_colour():
+            self.colour = colour
+        return change_colour
 
     def button_down(self, event):
         """
