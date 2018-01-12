@@ -66,7 +66,7 @@ Rewrite the `Paint` class to mirror the following:
 ```python
 class Paint(tkinter.Tk):
     def __init__(self, *args, **kwargs):
-        super(Paint, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.canvas = tkinter.Canvas(self, background='white')
         self.canvas.pack(side=tkinter.LEFT, expand=1, fill='both')
 ```
@@ -100,7 +100,7 @@ this:
 ```python
 class Paint(tkinter.Tk):
     def __init__(self, *args, **kwargs):
-        super(Paint, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.canvas = tkinter.Canvas(self, background='white')
         self.canvas.pack(side=tkinter.LEFT, expand=1, fill='both')
 
@@ -171,7 +171,7 @@ button commands have changed):
 ```python
 class Paint(tkinter.Tk):
     def __init__(self, *args, **kwargs):
-        super(Paint, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.canvas = tkinter.Canvas(self, background='white')
         self.canvas.pack(side=tkinter.LEFT, expand=1, fill='both')
 

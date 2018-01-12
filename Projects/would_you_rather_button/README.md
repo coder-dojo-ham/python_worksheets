@@ -65,7 +65,7 @@ Rewrite the class to look like this:
 ```python
 class WouldYouRather(tkinter.Tk):
     def __init__(self, *args, **kwargs):
-        super(WouldYouRather, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.the_button = tkinter.Button(self, text='Push the Button', command=self.button_press)
         self.the_button.pack()
         
