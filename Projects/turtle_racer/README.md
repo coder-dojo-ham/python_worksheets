@@ -1,4 +1,4 @@
-# Would you rather?
+# Turtle racer
 
 In this project we're going to create Turtle objects which
 can race each other.
