@@ -10,7 +10,7 @@ y2 = 100
 
 clock = pygame.time.Clock()
 
-while not done:
+while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             is_blue = not is_blue

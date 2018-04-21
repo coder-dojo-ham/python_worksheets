@@ -27,12 +27,17 @@ class TheButton(tkinter.Tk):
         self.text_label = tkinter.Label(self, textvariable=self.text)  # We use a label to display the StringVar.
         self.text_label.pack()
 
+        self.counter = 0
+
     def button_press(self):
         """
         Here is where we control what happens when a user pushes the button.
         """
-        print('Button pushed!')
+        self.counter += 1
+        self.text.set('hello ' + str(self.counter))
 
-push_the_button = TheButton()
+if __name__ == '__main__':
 
-tkinter.mainloop()
+    push_the_button = TheButton()
+
+    tkinter.mainloop()
