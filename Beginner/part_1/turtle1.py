@@ -35,3 +35,5 @@ forward(25)
 right(90)
 
 forward(100)
+
+home()

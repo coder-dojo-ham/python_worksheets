@@ -7,7 +7,7 @@ import random
 # we can choose a random number in a given range.
 target = random.randint(1, 1000)
 
-guess = int(input('Guess a number between 1 and 100: '))
+guess = int(input('Guess a number between 1 and 1000: '))
 
 # The while loop allows us to constantly do the same thing
 # until a condition is no longer True.
