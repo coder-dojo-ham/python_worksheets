@@ -2,162 +2,139 @@
 
 Welcome to your seventh python lesson!
 
-We're going to finish up by learning how to make a function, as well
-as learning how to use the `range` function.
+Here we're going to learn more about the `list` data type.
 
-## Making functions
+We will also introduce the `len` function.
 
-We've used a lot of functions already - remember they're the things you
-put brackets after like `print()`.
+## What is a list
 
-Now we'll learn how to make them.
+A list is an ordered collection of variables.
 
-Functions are made by using the `def` keyword, a name you choose and
-then a list of arguments between a pair of brackets, and finally
-some code. For example:
+They are made with square brackets like so:
 
 ```python
-def my_func(argument_1, argument_2):
-    print(argument_1)
-    print(argument_2)
+a = [1, 2, 3, 4, 5]
 ```
 
-It will then run everything indented after this line with those 
-variables. However it will only run _after_ you call the name with 
-brackets.
+## How can we use them?
 
-Whatever you put between the brackets will be put into the arguments you
-made.
+We've already seen how we can use them in for loops, but we
+can also access the data inside them by "slicing" and "indexing"
+them.
+
+### Indexing a list
+
+Indexing a list is when we want to access just one item in the list.
+
+We do this by putting the "index" of the item we want to get in square 
+brackets after the list variable. For example:
 
 ```python
->>> my_func('Hello', 'There')
-Hello
-There
+a = [1, 2, 3, 4, 5]
+b = a[0]  # b == 1
+c = a[2]  # c == 3
+d = a[1] + a[3]  # d == 6
 ```
 
-## The range function
+In this example we define a list of integers from 1 to 5, we then
+take the first item in this list (1) and assign it to the variable `b`.
+We assign the third item (3) to `c`. Finally we assign the sum of the 
+second (2) and fourth (4) item to `d`. 
 
-`range` is a function in Python which generates a list of numbers 
-up to (but not including) a given number.
+It may sound strange that we get the first item using `[0]`, this is
+because (as pointed out in the first lesson) python starts counting from 0.
+Python is what you call a 0-based language.
 
-We can see this in action using a `for` loop like so:
+### Slicing a list
+
+Slicing a list is when you want to get multiple items from the list
+at the same time.
+
+Where indexing returns a single item, slicing will return a list
+with the requested items in it.
+
+Again we use square brackets to define what we want, but we use
+two numbers separated by a colon to denote the beginning and end of
+the section we want.
 
 ```python
-for num in range(10):
-    print(num)
+a = [1, 2, 3, 4, 5]
+b = a[0:2]  # b == [1, 2]
+c = a[2:5]  # c == [3, 4, 5]
+d = a[2:100]  # d == [3, 4, 5]
+e = a[2:2]  # e == []
 ```
 
-This will print numbers from 0 to 9.
+Slicing strangely lets you put in any combination of numbers, even 
+if it exceeds the number of items there are - if you go beyond the
+lists limit it will just ignore it. 
 
-As we can see `for` loops follow a pattern of `for new_var in var`.
-It assumes `var` has several objects within itself. It then goes through 
-each object and assigns it to `new_var`, then executes everything indented
-after itself.
+## The `len` function
 
-Now let's make something more interesting.
+The `len` function simply returns the length of an object.
+
+This works for strings, lists and anything else which may have a length.
+
+```python
+a = len([1, 2, 3, 4, 5])  # a == 5
+b = len('How long is a piece of string?')  # b == 30
+
+```
+
 
 ## The lesson
 
-We're going to make a turtle which draws a shape for us based on a
-number we give it.
+Now we know different ways of using a list we're going to have a bit
+of fun with them and make a random food generator.
 
-So open a new file and get ready.
+### Step 1 - import random
 
-### Step 1 - import turtle and set the shape
+We'll need to import `random` to make a random food generator.
 
-This bit is easy:
-
-```python
-import turtle
-
-turtle.shape('turtle')
-```
-
-### Step 2 - create the function
-
-We're going to call the function `shape`.
-
-It will take the number of angles we want the shape to have
-and based on that figure out how much the turtle needs to turn.
-
-We will then run a `for` loop to make the turtle draw and turn the 
-right number of times.
-
-#### Step 2a - naming the function
-
-Add the following to the file:
+Lets do that:
 
 ```python
-def shape(angles):
+import random
 ```
 
-This gives us the function name and it's argument name, `shape`
-and `angles`.
+### Step 2 - define some random food lists
 
-#### Step 2b - figuring out how much the turtle turns
-
-We are working with degrees and all of a shapes angles need to add
-up to 360. So we need to divide 360 by the number of angles we want.
-
-Expand the function to look like this:
+Lets make two lists, one for food and another for toppings:
 
 ```python
-def shape(angles):
-    turn = 360/angles
+food = ['Macaroni', 'Chicken', 'Spaghetti', 'Fish', 'Eggs', 'Sausage', 'Noodles', 'Omelette', 'Mushrooms', 'Caramel', 'Chocolate']
+
+toppings = ['Cheese', 'Rice', 'Meatballs', 'Chips', 'Toast', 'Mash', 'Salad', 'Ice Cream', 'Quiche', 'Milk']
 ```
 
-#### Step 2c - drawing the shape
+You can replace these with anything you want.
 
-Now we have the number of angles and the amount the turtle turns
-all we have left to do is draw it.
+### Step 3 - make a random meal
 
-We will use a `for` loop which will execute for the number of
-angles there are in the shape. We will use `range` to give the
-for loop this number.
+Now we can use `random` to generate a random index from the
+length of the list.
 
-Expand the function to look like this:
+We can index the list with this to get our random foods which we print out:
 
 ```python
-def shape(angles):
-    turn = 360/angles
+random_food = food[random.randint(len(food))]
 
-    for _ in range(angles):
-        turtle.forward(50)
-        turtle.left(turn)
+random_topping = toppings[random.randint(len(toppings))]
+
+print('For today dinner is ' + random_food + ' and ' + random_topping + '!')
 ```
 
-That's the entire function!
-
-Your file should look like [this](turtle3.py).
-
-## Running the file
-
-When you run the file nothing will happen.
-
-This is because although you've defined your function you haven't 
-used it yet.
-
-Run the file and you should get an interactive prompt.
-
-In the prompt run this:
-
-    >>> shape(4)
-
-The turtle should draw a square.
-
-You can use it again and again with any number you want to keep
-drawing.
+#### N.B. We could just use `random.choice` instead of indexing as well.
 
 ## What have we done?
 
-We've discovered how to make functions and therefore how to make
-our code even more reusable.
+We've learnt more about what lists are and how we can use them.
 
-### Next
+Specifically we learnt about slicing and indexing.
 
-Take a look back through your old code and see if you could turn
-anything else into a function.
+We also learnt about the `len` function.
 
-We've also made a turtle that can only move left. Can you make
-another function that lets the turtle move to the right?
- 
+## Next
+
+Play around with the lists, maybe make a generator for something 
+other than food.

@@ -31,6 +31,7 @@ def fizzbuzz(num, fizz=3, buzz=5):
     else:
         return num
 
+
 if __name__ == '__main__':
     for x in range(50):  # The main loop to run the function.
         print(fizzbuzz(x))

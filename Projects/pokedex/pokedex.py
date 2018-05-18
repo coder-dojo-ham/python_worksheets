@@ -9,7 +9,6 @@ class Pokedex(tkinter.Tk):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.title
 
         self.input_label = tkinter.Label(self, text='Which Pokemon do you want to learn about?')
         self.input_label.grid(row=0, column=0)

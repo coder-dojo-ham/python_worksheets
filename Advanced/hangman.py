@@ -25,7 +25,7 @@ while ''.join(revealed) != word and tries < 15:
     if guess == word:  # They guessed the word, we need to break the loop!
         break
 
-    elif len(guess) == 1: # We need to make sure the guess was only 1 character long now.
+    elif len(guess) == 1:  # We need to make sure the guess was only 1 character long now.
 
         if guess not in guesses:  # We haven't tried this letter before.
             guesses.append(guess)  # Add it to the list of things we have guessed.

@@ -50,5 +50,5 @@ class WouldYouRather(tkinter.Tk):
         )
 
 
-push_the_button = WouldYouRather()
+would_you_rather = WouldYouRather()
 tkinter.mainloop()

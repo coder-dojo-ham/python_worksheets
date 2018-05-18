@@ -2,5 +2,5 @@
 
 Welcome to your eighth python lesson!
 
-We're going to follow up on lists and learn how to access them
-with something called "slicing".
+We're going to recap on an earlier lesson and learn about a new library,
+the `datetime` library.
