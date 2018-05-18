@@ -1,11 +1,9 @@
 import turtle
 
+turns = [90, 90, 90, 90, -90, -90, -90, -90]
+
 turtle.shape('turtle')
 
-
-def shape(angles):
-    turn = 360/angles
-
-    for _ in range(angles):
-        turtle.forward(50)
-        turtle.left(turn)
+for turn in turns:
+    turtle.forward(40)
+    turtle.left(turn)

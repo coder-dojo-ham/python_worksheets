@@ -37,6 +37,17 @@ Here we print `num` and then increase it by 1. Eventually `num` will
 be 10 or greater, at this point the `while` loop will break and the 
 program will end.
 
+### Why are while loops useful?
+
+While loops are part of something programmers call *DRY*, which
+means *D*on't *R*epeat *Y*ourself.
+
+In general when we code we try to never type the same thing twice.
+Instead we use loops and functions to store the code once and then
+do it multiple times.
+
+The next few lessons are dedicated to tools we use to do this.
+
 ## The lesson
 
 We are going to randomly generate a number and ask a user to guess it.
