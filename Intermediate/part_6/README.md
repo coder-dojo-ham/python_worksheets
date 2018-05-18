@@ -147,3 +147,17 @@ The turtle should draw a square.
 
 You can use it again and again with any number you want to keep
 drawing.
+
+## What have we done?
+
+We've discovered how to make functions and therefore how to make
+our code even more reusable.
+
+### Next
+
+Take a look back through your old code and see if you could turn
+anything else into a function.
+
+We've also made a turtle that can only move left. Can you make
+another function that lets the turtle move to the right?
+ 

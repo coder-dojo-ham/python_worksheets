@@ -32,15 +32,15 @@ that they keep them in the order you put them in.
 
 We've done `while` loops, now we need to look at `for` loops.
 
-`for` loops are a different because they don't use a condition
+`for` loops are different because they don't use a condition
 to define when they stop. Instead they take a list of objects
 and do something for every object in that list.
 
 For example:
 
 ```python
->>> for thing in [1, 2, 3]:
-        print(thing)
+for thing in [1, 2, 3]:
+    print(thing)
 1
 2
 3
@@ -53,4 +53,51 @@ of the numbers.
 
 We're going to be using turtle again, except this time instead of
 calling out every function ourselves, we're going to make a list
-of turns we want to make and loop over it.
+of  turns we want to make and loop over it.
+
+### Step 1 - Setup turtle
+
+This bit is easy:
+
+```python
+import turtle
+
+turtle.shape('turtle')
+```
+
+### Step 2 - Define the list
+
+Now we need to save the list into a variable, this should be
+fairly obvious by now.
+
+```python
+turns = [90, 90, 90, 90, -90, -90, -90, -90]
+```
+
+### Step 3 - Loop over the list
+
+Let's write our for loop.
+
+We named our list "turns" so we will loop over that:
+
+```python
+for turn in turns:
+    turtle.forward(40)
+    turtle.left(turn)
+```
+
+And that should be everything.
+
+Your file should look like [this](turtle2.py).
+
+## What have we done?
+
+We've finished up our control flow lessons with a for loop and
+we've found out what lists are.
+
+We've found that for loops are really useful for doing the same
+set of actions to a list of objects.
+
+### Next
+
+Play around with the list and make the turtle draw different shapes.

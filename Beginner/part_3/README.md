@@ -85,4 +85,19 @@ else:
 
 Feel free to change the ages used and the text to write something else.
 
-That's it!
+## What have we done
+
+In this lesson we started learning about control flow.
+
+We discovered what if statements are and how to use them, as a result we
+can now make our code do different things depending on what we tell it.
+
+### Next
+
+Add more options to the age question and have a play seeing how far you can
+take this.
+
+Maybe try make a game of Rock Paper Scissors.
+
+Another common project at this point is to make a short story game which
+changes based on a users choices.

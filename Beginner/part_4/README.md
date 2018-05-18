@@ -112,4 +112,14 @@ print('Yes! That is the number!')
 
 ```
 
-And that is it!
+## What have we done?
+
+We continued learning about control flow in this lesson and found out
+what a While loop is.
+
+While loops are really good for doing the same thing over and over again.
+
+### Next
+
+You could try and make other guessing games, or perhaps make a turtle
+constantly move around based on your input

@@ -58,7 +58,7 @@ Save it and run it. You should see a turtle appear on a screen.
 
 It will move forward a bit, and then turn left.
 
-### What have we done?
+## What have we done?
 
 We've used a function from `turtle`, `shape`, to create a turtle 
 image.

@@ -99,3 +99,13 @@ print(name + ' did you know that you are ' + str(months) + ' months old?')
 ```
 
 You can see the full code [here](age1.py).
+
+## What have we done?
+
+In this lesson we've learnt about the `input` function - an extremely
+useful function for making our programs work for everyone.
+
+### Next
+
+Play around with this function and see if you can make anything else 
+interesting with it.
