@@ -125,7 +125,7 @@ text to the file:
 
 ```python
 def write_secret(filename, secret):
-    encoded_secret = base64.encodebytes(bytes(secret))
+    encoded_secret = base64.encodebytes(bytes(secret, encoding='utf-8'))
     with open(filename, 'wb') as new_secret:
         new_secret.write(encoded_secret)
 ```
