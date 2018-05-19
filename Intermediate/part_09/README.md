@@ -120,8 +120,8 @@ This library has two functions we are going to use:
 
 We want a `write_secret` function which takes a filename and some
 text as arguments. It should then open the file in binary write mode,
-convert the text into bytes (using the `bytes` function) and write the
-text to the file:
+convert the text into bytes (using the `bytes` function, saying to use
+unicode, `utf-8` encoding) and write the text to the file:
 
 ```python
 def write_secret(filename, secret):
