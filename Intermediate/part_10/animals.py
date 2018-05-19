@@ -12,19 +12,10 @@ class Mammal(Animal):
     def speak(self):
         print('squeak')
 
-class Cat(Mammal):
-    def speak(self):
-        print('Meow')
 
 class Dog(Mammal):
-    def speak(self):
-        print('Woof')
+    def __init__(self, name):
+        self.name = name
 
-class Puppy(Dog):
-    young = True
-
-class Human(Mammal):
-    legs = 2
-    arms = 2
     def speak(self):
-        print('Hello')
+        print('My name is {}'.format(self.name))
