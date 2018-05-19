@@ -27,6 +27,7 @@ else is "true".
 We write them like this:
 
 ```python
+name = input('What is your name? ')
 years = int(input('How old are you ' + name  + '? '))
 
 if years > 10:
