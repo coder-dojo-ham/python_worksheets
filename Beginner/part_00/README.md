@@ -6,9 +6,11 @@ In this task we're going to write our first Python program.
 
 But first we should cover some absolute basics.
 
-## Variables and Types
+## The Lesson
 
-### Variables
+### Variables and Types
+
+#### Variables
 
 Python uses "variables" to store information, if you've worked
 with Scratch you may already be familiar with this.
@@ -26,7 +28,7 @@ You just created a variable called "my_var" and gave it a value of
 
 Try making another variable with another name.
 
-### Types
+#### Types
 
 Different variables have different "types" in Python. The one we
 made above has a type of `Int`, which is short for integer, which
@@ -54,7 +56,7 @@ Floats are define by using a decimal point:
 
     >>> my_float = 1.5
 
-### Using variables together
+#### Using variables together
 
 Variables can be used together with "operations". These include
 things like adding and subtracting.
@@ -83,7 +85,7 @@ But one thing we cannot do is mix types:
 
 This gives us an error telling us what went wrong.
 
-## Functions
+### Functions
 
 Functions are a core part of any programming language. They are
 a way for you to write code once and then use it over and over
@@ -107,7 +109,7 @@ screen.
 To do this we need to pass it an "argument", this is something we
 put in between the brackets, like a variable.
 
-### Capturing the output of functions
+#### Capturing the output of functions
 
 Some functions "return" and output. This means they create something
 new which you can put into a variable.
@@ -123,7 +125,7 @@ We can put this into a variable like so:
     >>> my_one
     '1'
 
-## Comments
+### Comments
 
 Comments are how we explain what is happening in our code.
 
@@ -135,7 +137,7 @@ For example:
     >>> print(1)  # This is a comment
     1
 
-### Using functions to change types
+#### Using functions to change types
 
 Another set of useful functions that Python gives us are functions 
 change the type of an object.
@@ -153,7 +155,7 @@ We can use these to fix the errors we had earlier:
     >>> 1 + int("2")
     3
 
-## Our first program.
+### Our first program.
 
 We can keep writing code in our interactive prompt (the thing which
 starts with `>>> `) but then we'll lose everything when we close the

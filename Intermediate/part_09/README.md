@@ -5,7 +5,9 @@ Welcome to your tenth python lesson!
 In this lesson we're going to learn to read and write to files
 as well as how to encode and decode basic "secrets".
 
-## Opening files in python
+## The Lesson
+
+### Opening files in python
 
 Files are a core tool in python and essential to saving "state".
 
@@ -28,7 +30,7 @@ with open('file.txt') as file:
     file.read()
 ```
 
-### File modes
+#### File modes
 We can also open files in different "modes". The default mode is read 
 only, so we cannot write to the file but can read it's contents.
 
@@ -49,7 +51,7 @@ Be careful when using write mode, if you open an old file in this mode
 it will delete all the contents of it and treat it as a blank file. Even
 if you don't actually write anything!
 
-### Binary modes
+#### Binary modes
 
 There are two main types of text in programming, Unicode and Bytes. 
 Unicode is what we are used to reading on our screens, it includes the
@@ -77,7 +79,7 @@ read = open(filename, 'rb')  # a file in binary read mode.
 write = open(filename, 'wb')  # a file in binary write mode.
 ```
 
-## Secrets in Python
+### Secrets in Python
 
 There are many ways of creating "secrets" in the programming world, they
 generally fall into two categories:
@@ -92,7 +94,7 @@ them in this example.
 Hashed secrets are for secrets you never want people to read, but you want
 to check if people know - this is primarily for passwords.
 
-## The Lesson
+## The Exercise
 
 We are going to write two functions, one that reads a secret from a file 
 and one that writes a secret to a file.

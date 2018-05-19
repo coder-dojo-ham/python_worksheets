@@ -6,7 +6,9 @@ We're going to learn about a new library, the `datetime` library.
 Once we understand what it is for we are going to use it to `refactor`
 some of our old code.
 
-## What is the `datetime` library?
+## The Lesson
+
+### What is the `datetime` library?
 
 In python the `datetime` library is what we use for handling dates and times.
 
@@ -22,7 +24,7 @@ e.g. 4PM on the 12th of May 2018.
 2) `date` - a type which holds just a date. e.g. the 12th of May 2018.
 3) `timedelta` - a type which holds a length of time. e.g. 4 days.
 
-## What is refactoring?
+### What is refactoring?
 
 Refactoring is the practice of improving code over time.
 
@@ -36,7 +38,7 @@ This is called refactoring.
 Today we are going to refactor our original age calculating program from part 2
 by making it much more accurate with the `datetime` library. 
 
-## The lesson
+## The Exercise
 
 We are going to ask for someones full date of birth and tell them
 how old they are in days.

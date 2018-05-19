@@ -5,7 +5,9 @@ Welcome to your ninth python lesson!
 We're going to finish up by learning how to make a function, as well
 as learning how to use the `range` function.
 
-## Making functions
+## The Lesson
+
+### Making functions
 
 We've used a lot of functions already - remember they're the things you
 put brackets after like `print()`.
@@ -35,7 +37,7 @@ Hello
 There
 ```
 
-## The range function
+### The range function
 
 `range` is a function in Python which generates a list of numbers 
 up to (but not including) a given number.
@@ -56,7 +58,7 @@ after itself.
 
 Now let's make something more interesting.
 
-## The lesson
+## The Exercise
 
 We're going to make a turtle which draws a shape for us based on a
 number we give it.

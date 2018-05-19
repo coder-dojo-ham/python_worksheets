@@ -5,7 +5,9 @@ Welcome to your sixth python lesson!
 We're going to finish up by learning some about for loops and a 
 new data type.
 
-## Lists
+## The Lesson
+
+### Lists
 
 Lists are a very common data type in python which, as you 
 may have guessed, hold a list of other data.
@@ -28,7 +30,7 @@ a type of variable and can be stored like everything else._
 The important thing about lists is that they hold *anything* and
 that they keep them in the order you put them in. 
 
-## For loops
+### For loops
 
 We've done `while` loops, now we need to look at `for` loops.
 
@@ -49,7 +51,7 @@ for thing in [1, 2, 3]:
 In this example we simply made a list of numbers and printed all
 of the numbers.
 
-## The Lesson
+## The Exercise
 
 We're going to be using turtle again, except this time instead of
 calling out every function ourselves, we're going to make a list

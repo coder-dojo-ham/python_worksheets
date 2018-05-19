@@ -6,7 +6,9 @@ Here we're going to learn more about the `list` data type.
 
 We will also introduce the `len` function.
 
-## What is a list
+## The Lesson
+
+### What is a list
 
 A list is an ordered collection of variables.
 
@@ -16,13 +18,13 @@ They are made with square brackets like so:
 a = [1, 2, 3, 4, 5]
 ```
 
-## How can we use them?
+### How can we use them?
 
 We've already seen how we can use them in for loops, but we
 can also access the data inside them by "slicing" and "indexing"
 them.
 
-### Indexing a list
+#### Indexing a list
 
 Indexing a list is when we want to access just one item in the list.
 
@@ -45,7 +47,7 @@ It may sound strange that we get the first item using `[0]`, this is
 because (as pointed out in the first lesson) python starts counting from 0.
 Python is what you call a 0-based language.
 
-### Slicing a list
+#### Slicing a list
 
 Slicing a list is when you want to get multiple items from the list
 at the same time.
@@ -69,7 +71,7 @@ Slicing strangely lets you put in any combination of numbers, even
 if it exceeds the number of items there are - if you go beyond the
 lists limit it will just ignore it. 
 
-## The `len` function
+### The `len` function
 
 The `len` function simply returns the length of an object.
 
@@ -82,7 +84,7 @@ b = len('How long is a piece of string?')  # b == 30
 ```
 
 
-## The lesson
+## The Exercise
 
 Now we know different ways of using a list we're going to have a bit
 of fun with them and make a random food generator.

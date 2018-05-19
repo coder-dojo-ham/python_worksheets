@@ -5,7 +5,9 @@ Welcome to your second python lesson!
 In this one we are going to `import` a library and use
 it's functions.
 
-## What is importing?
+## The Lesson
+
+### What is importing?
 
 Python has a _lot_ of functions you can use, but it likes to
 hide them so programs don't get too big.
@@ -35,7 +37,7 @@ To import a library you can either:
   the functions the same as above, but you might have a lot of 
   things you don't need and it may cause bugs.
 
-## The lesson
+## The Exercise
 
 In this lesson we will import everything from turtle and use 
 a few functions to draw on our screen.

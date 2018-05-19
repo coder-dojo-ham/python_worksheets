@@ -4,7 +4,9 @@ Welcome to your fourth python lesson!
 
 We're learning about "control flow" in this lesson.
 
-## What is control flow?
+## The Lesson
+
+### What is control flow?
 
 Control flow is how we control what a program can and can't do.
 
@@ -17,7 +19,7 @@ The 2 main ways to do this are:
 
 We will focus on if statements in this lesson.
 
-## If statements
+### If statements
 
 If statements are a special way to do something only if something 
 else is "true".
@@ -50,7 +52,7 @@ else:
     print('You are between 10 and 5.')
 ```
 
-## The lesson
+## The Exercise
 
 ### Step 1 - getting the age
 

@@ -4,7 +4,9 @@ Welcome to your fifth python lesson!
 
 We're learning more about "control flow" in this lesson.
 
-## Loops
+## The Lesson
+
+### Loops
 
 In the last lesson we mentioned loops, in this lesson we will use one.
 
@@ -15,7 +17,7 @@ There are two types of loops:
 
 In this lesson we are using a `while` loop.
 
-### What is a `while` loop?
+#### What is a `while` loop?
 
 A `while` loop is a loop which keeps doing the same thing over and over
 until a condition is not met.
@@ -37,7 +39,7 @@ Here we print `num` and then increase it by 1. Eventually `num` will
 be 10 or greater, at this point the `while` loop will break and the 
 program will end.
 
-### Why are while loops useful?
+#### Why are while loops useful?
 
 While loops are part of something programmers call *DRY*, which
 means *D*on't *R*epeat *Y*ourself.
@@ -48,7 +50,7 @@ do it multiple times.
 
 The next few lessons are dedicated to tools we use to do this.
 
-## The lesson
+## The Exercise
 
 We are going to randomly generate a number and ask a user to guess it.
 

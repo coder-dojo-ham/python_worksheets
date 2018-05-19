@@ -6,7 +6,9 @@ We're learning a new and very useful function in this lesson:
 
 `input`
 
-## What is `input`?
+## The Lesson
+
+### What is `input`?
 
 `input` is a special function which allows you to ask the user for
 input. You can ask people questions!
@@ -16,7 +18,7 @@ It takes one argument which is the question you want to ask.
 Always end the question with a space after the question mark
  otherwise it looks a bit weird.
 
-### Try it out
+#### Try it out
 
 In an interactive prompt, put in the following:
 
@@ -26,7 +28,7 @@ You'll see the question printed below and it will let you type next
 to it. When you hit enter it will print what you wrote on the 
 screen.
 
-### Catch the output
+#### Catch the output
 
 In the same way we catch output from other functions we can capture
 the output from `input`. Like so:
@@ -35,12 +37,12 @@ the output from `input`. Like so:
 
 Now if you print `name` it will tell you what the user wrote.
 
-### A warning
+#### A warning
 
 `input` will _always_ return a string. So if you want a number you'll
 have to use `int` to convert it.
 
-## The lesson
+## The Exercise
 
 Now let's do the task.
 
