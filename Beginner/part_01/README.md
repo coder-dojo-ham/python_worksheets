@@ -26,11 +26,11 @@ To import a library you can either:
 
 - Use just the `import` keyword like `import random`.
   This means to use the functions in the module you have to 
-  always add `random.` in front. E.g. `random.randint(10)`.
+  always add `random.` in front. E.g. `random.randint(0, 10)`.
   
 - Import a specific function from the module like 
   `from random import randint`. This means you can use the function
-  directly like `randint(10)`.
+  directly like `randint(0, 10)`.
   
 - Import _all_ the functions from the module in one go like
   `from random import *` (`*` means everything). You can use 
