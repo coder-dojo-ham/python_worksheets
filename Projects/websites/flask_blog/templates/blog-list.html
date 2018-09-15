@@ -1,0 +1,17 @@
+<!doctype html>
+
+<title>My Blog</title>
+
+
+<h1>Welcome to my blog! Find my posts below</h1>
+
+<div>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{{ url_for('view_post', pk=post.id) }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Create a new post <a href="{{ url_for('create_post') }}">here</a>.
+</div>
