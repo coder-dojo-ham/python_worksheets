@@ -2,170 +2,196 @@
 
 Welcome to your tenth python lesson!
 
-In this lesson we're going to learn to read and write to files
-as well as how to encode and decode basic "secrets".
+We're going to carry on with functions in this lesson while
+introducing three new concepts:
+
+1) The main block.
+2) The Modulus operator.
+3) Default arguments in functions.
 
 ## The Lesson
 
-### Opening files in python
+### The main block
 
-Files are a core tool in python and essential to saving "state".
+The most important thing about functions is that we can reuse them.
 
-To use files we have to open and close them. The easiest way to do
-this is with the `open` function and `.close` method like so:
+This includes using them in other files and programs we write. We
+do this by importing our own code. When you import a file it runs all 
+the code within it. This means any functions you've written (and 
+classes which we cover later) are created and made ready for use.
+However any top level code outside of these will be run as is, often 
+this isn't desirable.
 
-```python
-file = open('file.txt')  # I've opened the file.
-file.close()  # Now I've closed it.
-```
-
-However this is an old method and can be dangerous, if you forget to
-close the file, or the program has a bug, the file can become corrupt.
-
-To solve this we have a special `with` keyword which makes sure we
-_always_ close the file:
+This will make a function but won't run or print anything out when 
+imported:
 
 ```python
-with open('file.txt') as file:
-    file.read()
+def sum(a, b):
+    print(a + b)
 ```
 
-#### File modes
-We can also open files in different "modes". The default mode is read 
-only, so we cannot write to the file but can read it's contents.
+This will run and print when imported:
 
 ```python
-with open('file.txt') as file:
-    for line in file:
-        print(line)  # prints every line of the file.
+print(1 + 2)
 ```
 
-To write to a file we need to open in write mode which we do like so:
+To make sure we don't run top level code on import we have to use 
+something called a `main` block.
+
+`main` blocks make sure the code inside them are only executed
+when the file they are in is run directly run, not imported. So
+the code will not run when the file is imported. They are generally 
+found at the end of a file and in our case would look like:
 
 ```python
-with open('file.txt', 'w') as file:
-    file.write('Hello, World!')
+if __name__ == '__main__':
+    print(1 + 2)
 ```
 
-Be careful when using write mode, if you open an old file in this mode
-it will delete all the contents of it and treat it as a blank file. Even
-if you don't actually write anything!
-
-#### Binary modes
-
-There are two main types of text in programming, Unicode and Bytes. 
-Unicode is what we are used to reading on our screens, it includes the
-alphabet, numbers, symbols and everything else up to and including
-emojis.
-
-Bytes on the other hand is what the machine _actually_ sees, which to
-humans normally looks like nonsense. Luckily python has a special type of
-string called a byte string which looks like normal text to us, but 
-python translates for the machine.
-
-If we want to use these byte strings we prepend our strings with a `b` like
-so:
+The key bit here that makes it a `main` block is the line:
 
 ```python
-b'This is a byte string'
+if __name__ == '__main__':
 ```
 
-Sometimes when reading and writing files we need to read them as byte strings
-instead of unicode, in which case we have to open them in binary mode. We do this
-by adding a `b` to our normal mode:
+It is usually advised that any top level code that you don't want
+to run when importing a file should be put inside one of these blocks.
+
+### The Modulus operator
+
+The [Modulus](https://en.wikipedia.org/wiki/Modulo_operation) is a 
+mathematical operator that finds the remainder after division of two
+numbers.
+
+In python (and several other languages) the modulus is represented 
+by the `%` sign.
+
+Some examples:
 
 ```python
-read = open(filename, 'rb')  # a file in binary read mode.
-write = open(filename, 'wb')  # a file in binary write mode.
+>>> 10 % 3
+1
+>>> 5 % 3
+2
+>>> 1000 % 300
+100
+>>> 10 % 2
+0
 ```
 
-### Secrets in Python
+### Default arguments
 
-There are many ways of creating "secrets" in the programming world, they
-generally fall into two categories:
+Usually when you write a function you include arguments. However sometimes
+you'll expect to normally use the same arguments over and over again. To
+deal with this, so we don't have to write out the same arguments again and
+again, we can use something called default arguments. These look the same
+as normal arguments but include a value with a name.
 
-1) Reversible secrets (encoding and encryption).
-2) Irreversible secrets (hashing).
+They look like this:
 
-Encoded and encrypted secrets are for secrets you want people to eventually 
-be able to read. We use them for things like secure websites, and will use 
-them in this example.
+```python
+def func(a, b=1, c=2):
+    return a + b + c
 
-Hashed secrets are for secrets you never want people to read, but you want
-to check if people know - this is primarily for passwords.
+print(func(1, 2, 3))  # prints 6
+print(func(1))  # prints 4
+print(func(1, c=8))  # prints 10
+
+```
+
+In this case `a` is a normal (or `positional`) argument, whereas `b` and `c`
+are `keyword` arguments with defaults of 1 and 2. As you can see from the 
+example, you can use all arguments, just the positional arguments, or any
+combination in between.
+
+The most important point is that you must _always_ fill positional arguments
+whereas keyword or default arguments are optional.
 
 ## The Exercise
 
-We are going to write two functions, one that reads a secret from a file 
-and one that writes a secret to a file.
+We're going to implement a game called FizzBuzz.
 
-The function that reads the file will try to decode the contents using
-the python `base64` encoding library. Whereas the one that writes to the 
-file will encode the message using `base64`.
+This is a simple game where you choose two numbers (normally 3 and 5) and then
+count upwards. For every number that divides by the first chosen number 
+(normally 3) instead of saying the number you say "Fizz". For every number that 
+divides by the second chosen number (normally 5) you say "Buzz". And for
+every number that divides by both you say "FizzBuzz".
 
-### Part 1 - import `base64`
+We'll make a `function` which does this and then run it inside a `main` block.
 
-You should know how to do this by now:
+### Step 1a - create the function
 
-```python
-import base64
-```
+We'll make a function called `FizzBuzz` which takes 3 arguments.
 
-This library has two functions we are going to use:
+The first argument is the number we're checking, the second is our `fizz`
+number and the third will be the `buzz` number. We'll make these default 
+arguments using 3 and 5 respectively.
 
-1) `base64.decodebytes()` - for decoding a secret.
-2) `base64.encodebytes()` - for encoding a secret.
-
-### Part 2 - Writing to a file with a function
-
-We want a `write_secret` function which takes a filename and some
-text as arguments. It should then open the file in binary write mode,
-convert the text into bytes (using the `bytes` function, saying to use
-unicode, `utf-8` encoding) and write the text to the file:
+It should start looking like this:
 
 ```python
-def write_secret(filename, secret):
-    encoded_secret = base64.encodebytes(bytes(secret, encoding='utf-8'))
-    with open(filename, 'wb') as new_secret:
-        new_secret.write(encoded_secret)
+def fizzbuzz(num, fizz=3, buzz=5):
 ```
 
-Try and run your code and write something to a file. Take a look to see
-what it made.
+### Step 1b - add the function body
 
-### Part 3 - Reading from a file with a function
+Now we have our `def` line we need to add the function body to check the
+numbers.
 
-We want a `read_secret` function which takes a filename as an argument.
-It should then open the file in binary read mode, read the lines and decode 
-them:
+We need to ask if `num` divides by either `fizz`, `buzz` or both. We can
+do this with the modulus or `%` operator. Remember this tells us the 
+remainder after dividing two numbers together. If we want to find out
+if a number divides by another pefectly then the modulus should return 0.
+
+Use `if` statements to check what the number divides by. It should look roughly
+like:
 
 ```python
-def read_secret(filename):
-    with open(filename, 'rb') as secret:
-        for line in secret:
-            print(base64.decodebytes(line))
+def fizzbuzz(num, fizz=3, buzz=5):
+    if num % fizz == 0 and num % buzz == 0:
+        return 'FizzBuzz'
+    elif num % fizz == 0:
+        return 'Fizz'
+    elif num % buzz == 0:
+        return 'Buzz'
+    else:
+        return num
 ```
 
-Try and run your file and read what you made in the last section. Does it
-come out with the correct message?
+### Step 2 - add a main block
+
+Now we have our function we can run the code and use the function directly.
+
+However it would be nice to run the code in one go. Let's add a `main` block
+so we can do this.
+
+Choose a number you want to count to (I'm choosing 50). Make a `main` block and
+in that block write a loop which uses the `fizzbuzz` function to count to that 
+number.
+
+```python
+if __name__ == '__main__':
+    for x in range(50):
+        print(fizzbuzz(x))
+```
+
+That's it. Your file should look something like [this](fizzbuzz.py).
 
 ## What have we done?
 
-We've learnt how to read and write from files in different modes.
+We've created a function which calculates if a number is divisible by fizz or 
+buzz using a new operator, the modulus.
 
-We've also learnt about secrets in programming and how to make our own.
+We've discovered default/keyword arguments and used them to choose sensible
+default fizz and buzz numbers.
 
-Keep in mind, `base64` secrets are not very secure. But they're probably
-good enough to stop most people understanding what you've written.
+We've also learnt about the `main` block and have used that to be able to run
+code directly when we want, but avoid running it on import.
 
-### Next
+## Next
 
-Try and see if there is anything else you can build with this. Like a
-secret messaging system.
+Can you create a main block which uses different numbers for fizz and buzz?
 
-You can also play around with writing anything to file, for example 
-you could ask people questions and store their answers - creating
-a pseudo learning program.
-
-If you want to do something really weird you can even write python files
-using python (this is how IDLE works).
+What happens if you change the order of the if statements?
+    §

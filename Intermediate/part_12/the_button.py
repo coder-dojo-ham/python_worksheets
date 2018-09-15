@@ -12,5 +12,6 @@ class TheButton(tkinter.Tk):
         print('You pushed the button!')
 
 
-the_button = TheButton()
-tkinter.mainloop()
+if __name__ == '__main__':
+    the_button = TheButton()
+    tkinter.mainloop()

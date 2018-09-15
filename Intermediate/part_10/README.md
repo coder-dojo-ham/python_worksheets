@@ -2,246 +2,196 @@
 
 Welcome to your eleventh python lesson!
 
-We're learning a very important concept in this lesson, 
-Objects and Classes. We will also touch on GUIs.
+In this lesson we're going to learn to read and write to files.
 
 ## The Lesson
 
-### What are objects?
+### Opening files in python
 
-Everything in Python is an object. An object is simply something
-that has:
+Files are a core tool in python and essential to saving "state".
 
-1) Properties - variables attached to an object.
-2) Methods - functions attached to an object.
-
-They are very useful for holding state
-
-#### N.B. state is what a program, or part of a program, looks like at any given time.
-
-### What are classes?
-
-Classes are like templates for objects. We use them to define
-what an object should look like, and then make objects from them.
-
-Let's make a basic class and call it "Animal". We will give it an alive
-property of `True` and a `die` method:
+To use files we have to open and close them. The easiest way to do
+this is with the `open` function and `.close` method like so:
 
 ```python
-class Animal:
-    alive = True
-    
-    def die(self):
-        self.alive = False
-
-``` 
-
-We can see here that while functions normally start with a `def` statement,
-classes start with a `class` statement. Classes also don't require brackets
-in their definition (although you can use them).
-
-Defining a class property is as simple as putting a variable in the class.
-
-Methods on the other hand are a bit more complex. They look like normal 
-functions however they have to have at least one argument, `self`, which 
-refers to the object you'll make with the class. 
-
-#### Making objects from classes
-
-Let's try out our class and make some objects, run your code in an interactive
-prompt and do the following:
-
-```python
->>> first = Animal()
->>> second = Animal()
->>> first.alive
-True
->>> second.alive
-True
->>> first.die()
->>> first.alive
-False
->>> second.alive
-True
+file = open('file.txt')  # I've opened the file.
+file.close()  # Now I've closed it.
 ```
 
-Here we made two _objects_ using our `Animal` _class_, called `first` and 
-`second`. And whilst they both have the same properties, based on the class,
-when one dies it does not affect the others.
+However this is an old method and can be dangerous, if you forget to
+close the file, or the program has a bug, the file can become corrupt.
 
-#### Class inheritance
-
-Using classes as templates is one part of their usability. Another very
-useful aspect is called _inheritance_. This is where a class can inherit
-the template of another class, and then expand it. We do this by putting
-the class we want to inherit in brackets when defining the new class.
-
-Add this after your `Animal` class:
+To solve this we have a special `with` keyword which makes sure we
+_always_ close the file:
 
 ```python
-class Mammal(Animal):
-    legs = 4
-    eyes = 2
-
-    def speak(self):
-        print('squeak')
+with open('file.txt') as file:
+    file.read()
 ```
 
-Here we can see a new class, `Mammal`, inheriting `Animal` inside 
-parentheses.
-
-We add 2 new properties, legs and eyes, as well as a speak method.
-
-Let's try it out:
+#### File modes
+We can also open files in different "modes". The default mode is read 
+only, so we cannot write to the file but can read it's contents.
 
 ```python
->>> first = Mammal()
->>> second = Mammal()
->>> first.legs
-4
->>> first.alive
-True
->>> first.speak()
-squeak
->>> first.legs = 6
->>> first.legs
-6
->>> second.legs
-4
+with open('file.txt') as file:
+    for line in file:
+        print(line)  # prints every line of the file.
 ```
 
-We can see that our first and second objects are again based on the same 
-template, but can be changed separately.
-
-We can also see that we can still access the properties and methods we 
-inherited from `Animal` as well.
-
-Let's take this even further and make another new class and inherit
-`Mammal`:
+To write to a file we need to open in write mode which we do like so:
 
 ```python
-class Dog(Mammal):
-    def __init__(self, name):
-        self.name = name
-
-    def speak(self):
-        print('My name is {}'.format(self.name))
+with open('file.txt', 'w') as file:
+    file.write('Hello, World!')
 ```
 
-Here we have made a `Dog` class which inherits from `Mammal`. But 
-we aren't defining any new properties. Instead we are overriding the
-`speak` to tell us the dogs name.
+Be careful when using write mode, if you open an old file in this mode
+it will delete all the contents of it and treat it as a blank file. Even
+if you don't actually write anything!
 
-We have also created a special method called `__init__`. This method is
-special because it is called as soon as we make an object. Python looks
-for it and uses it without us having to do it ourselves.
-
-We give the `__init__` method it's arguments when we start (or "initiate")
-our object.
-
-Let's try it out:
+If you want to just write to the end of a file you should use the append mode
+which can be done like so:
 
 ```python
->>> good_boy = Dog('Rex')
->>> good_boy.alive
-True
->>> good_boy.legs
-4
->>> good_boy.name
-'Rex'
->>> good_boy.speak()
-My name is Rex
+with open('file.txt', 'a') as file:
+    file.write('Hello, World again!')
 ```
 
-We can see here that we've completely overwritten the `speak` method
-and that the name we gave when making the object was passed into the 
-`__init__` method.
+This will open the file and add text to the end of it instead of overwriting 
+the file.
 
-## The exercise
+### New lines
 
-Let's take what we've learnt and do something even more useful.
+Weirdly writing on a newline requires a special character. If you don't
+include the special character then everything gets written on the same line.
 
-Classes and objects can seem weird at first but they are some of
-the most powerful tools in python. And that is because we can take
-someone else's code and use it ourselves without having to do any work.
+The special character is `\n`. Include it at the end of the text you want
+to write a new line.
 
-We're going to inherit some code from a new library called `tkinter`.
-
-By inheriting code from this library we will be able to make a simple GUI.
-
-### Part 1 - import `tkinter`
-
-Start a file with:
+For the above it would look like:
 
 ```python
-import tkinter
+with open('file.txt', 'w') as file:
+    file.write('Hello, World!\n')
 ```
 
-### Part 2 - create the Button class
+## The Exercise
 
-We're going to define a class called `TheButton` which inherits `tkinter.Tk`.
+We're going to use the fizzbuzz function we made in the last lesson to read
+a file full of numbers and replace them in a new file with fizz, buzz, fizzbuzz
+or the same number.
+
+### Step 1 - make a file full of numbers
+
+You can do this by hand or using python. Each number should be on a new line.
+
+Let's call the file `numbers.txt`. To make it with python we can import random
+and create a given number of random numbers.
+
+This should be done in a function so it only happens on demand.
+
+The following should work just fine:
 
 ```python
-class TheButton(tkinter.Tk):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+import random
+
+
+def generate_random_numbers():
+    with open('numbers.txt', 'w') as file:
+        for _ in range(100):
+            file.write(str(random.randint(0, 1000)) + '\n')
 ```
 
-You can see we've also defined an `__init__` method which takes
-`*args` and `**kwargs` as its arguments. This is a cheat way of
-copying the inherited `__init__` method so that when we overwrite it
-we don't lose the original method.
+In a python terminal import this function and run it to make the file of 
+random numbers.
 
-### Part 3 - Add a button and command
+### Step 2 - import the fizzbuzz function
 
-Now we have the base for our GUI we need to add a "widget" - which will
-be our button.
-
-Adapt the code to look like this:
+We will assume you have the file with the fizzbuzz function in the same folder as 
+the file you are currently writing. We will also assume this file is called 
+`fizzbuzz.py`. If this is the case you can import the function like so:
 
 ```python
-class TheButton(tkinter.Tk):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.the_button = tkinter.Button(self, text='Push the Button', command=self.button_press)
-        self.the_button.pack()
-    
-    def button_press(self):
-        print('You pushed the button!')
+from fizzbuzz import fizzbuzz
 ```
 
-Here we have added a `the_button` attribute to the object when it is made.
-This button will have the text 'Push the button' and when clicked will
-call the method `button_press`.
+### Step 3 - write the function to fizzbuzz a file
 
-### Part 4 - Starting the GUI
+We are going to create a function which opens two files, an input
+and an output file. We'll allow the names of these files to be changed with
+default arguments.
 
-Add the following to the end of the file:
+We'll open both files in a single `with` statement and start reading the input
+file before running fizzbuzz on the file.
+
+#### Step 3a - create the function and with statement
+
+Lets start with the with statement:
 
 ```python
-the_button = TheButton()
-tkinter.mainloop()
+def fizzbuzz_file(input_name='numbers.txt', output_name='fizzbuzz.txt'):
+    with open(input_name) as input_file, open(output_name, 'w') as output_file:
 ```
 
-This creates an object, or instance, of `TheButton` class. The last line
-sets up the "loop" which the GUI will run in so the window doesn't close.
+As you can see we have opened two files in a single with statement, separating
+them with commas.
 
-Run the program and you should hae a button appear on screen which you 
-can click.
+#### Step 3b - Start reading the input file
 
-Your code should look like [this](the_button.py).
+Let's start reading the input file now. As python assumes everything in a file
+is made of text we'll have to manually convert the lines into integers.
 
+```python
+def fizzbuzz_file(input_name='numbers.txt', output_name='fizzbuzz.txt'):
+    with open(input_name) as input_file, open(output_name, 'w') as output_file:
+        for num in input_file:
+            num = int(num)
+```
+
+#### Step 3c - fizzbuzz the file
+
+Now we have the number as an integer we can check it for fizzbuzz.
+
+We have to make sure the result is a string and then write it to the output
+file. Don't forget to include the newline.
+
+```python
+def fizzbuzz_file(input_name='numbers.txt', output_name='fizzbuzz.txt'):
+    with open(input_name) as input_file, open(output_name, 'w') as output_file:
+        for num in input_file:
+            num = int(num)
+            result = str(fizzbuzz(num))
+            output_file.write(result + '\n')
+```
+
+### Step 4 - add a main block
+
+Finally lets add a main block to run the whole thing:
+
+```python
+if __name__ == '__main__':
+    generate_random_numbers()
+    fizzbuzz_file()
+```
+
+Finally run the file and we are finished.
 
 ## What have we done?
 
-We've learnt about objects and classes - a very significant, and lengthy,
-lesson.
+We've discovered how to read and write to files.
 
-We've learnt about inheritance and how we can use it. And we've used
-inheritance to make a GUI in 10 lines of code.
+To explore this we imported a function we made previously and applied it
+to a file of numbers - writing the output somewhere else.
 
 ### Next
 
-What else could we do with objects?
+Try playing with what you write to the output file. Maybe include the 
+original number so you can check the result by hand.
 
-Could we inherit anything else? or could we make an either bigger GUI? 
+You can play around with writing anything to files, for example 
+you could ask people questions and store their answers - creating
+a pseudo learning program.
+
+If you want to do something really weird you can even write python files
+using python (this is how IDLE works).
