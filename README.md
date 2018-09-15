@@ -1,3 +1,5 @@
-# Coder Dojo Python Scripts
+# Coder Dojo Python lessons
 
-Here is a collection of Python scripts I use to teach kids at the local Coder Dojo.
+This repository holds the lessons used to teach kids Python at
+Coder Dojo Ham.
+
