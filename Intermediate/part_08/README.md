@@ -1,6 +1,6 @@
 # Beginner Python - Part 8
 
-Welcome to your ninth python lesson!
+Welcome to your ninth Python lesson!
 
 We're going to finish up by learning how to make a function, as well
 as learning how to use the `range` function.
@@ -162,4 +162,3 @@ anything else into a function.
 
 We've also made a turtle that can only move left. Can you make
 another function that lets the turtle move to the right?
- 
