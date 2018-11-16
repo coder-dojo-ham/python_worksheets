@@ -65,6 +65,13 @@ $ export FLASK_APP=calculator.py
 $ flask run
 ```
 
+Run the following if you are running in a window environment: 
+
+```bash
+$ set FLASK_APP=calculator.py
+$ flask run
+```
+
 Open chrome with the above still running and go to the website `localhost:5000`.
 
 You should see the text you wrote in the home function. 
@@ -193,7 +200,7 @@ file called `html-add.html`. In that file write the following:
 ```
 
 This may look a little weird to others who have done html before. But we're
-actually going t use a special "templating syntax" in Flask so it can do 
+actually going to use a special "templating syntax" in Flask so it can do 
 some things for us. The `{{ result }}` line for example, will be replaced by 
 a variable we give called `result`.
 
@@ -209,7 +216,7 @@ def add_html(num1, num2):
     return render_template('html-add.html', num1=num1, num2=num2, result=num1 + num2)
 ```
 
-Now restart the ap and in your browser go to `localhost:5000/number-html/4`
+Now restart the ap and in your browser go to `localhost:5000/add-html/4/3`
 
 You now have a slightly styled web page!
 
