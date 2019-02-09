@@ -119,9 +119,9 @@ length of the list.
 We can index the list with this to get our random foods which we print out:
 
 ```python
-random_food = food[random.randint(0, len(food))]
+random_food = food[random.randint(0, len(food)-1)]
 
-random_topping = toppings[random.randint(0, len(toppings))]
+random_topping = toppings[random.randint(0, len(toppings)-1)]
 
 print('For today dinner is ' + random_food + ' and ' + random_topping + '!')
 ```
